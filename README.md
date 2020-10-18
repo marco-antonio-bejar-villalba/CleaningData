@@ -5,6 +5,13 @@
 
 I give the proper acknowledgement to the original authors [^1] and thank them for the kindly gesture of sharing the data.
 
+## Files
+
+- FinalData.txt the tidy data as a txt file.
+- README.md this file.
+- CodeBook.md the codebook of this project.
+- CleandataAnalysis.R Script that process de data.
+
 ## Purpose
 
 This project is intended to clean the data in the [Coursera Repository](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). The data structure is described in the [UCI Maching Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) and consists mainly in the following:
