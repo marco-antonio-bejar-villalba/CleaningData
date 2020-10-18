@@ -3,7 +3,7 @@
 
 ## Acknowledgements
 
-I give the proper acknowledgement to the original authors[^1] and thank them for the kindly gesture of sharing the data.
+I give the proper acknowledgement to the original authors [^1] and thank them for the kindly gesture of sharing the data.
 
 ## Purpose
 
