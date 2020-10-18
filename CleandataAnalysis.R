@@ -56,14 +56,14 @@ getWearableComputingDS<-function(pathToData,
 
 cleanColumns<-function(dataToProcess){
   Features.Names<-fread(file.path(Path.Main,"features.txt"))
-  Columns.Good<-grep("(std\\())|(mean\\())",Nombres$V2,value = TRUE)
-  select(Data.Total,"Type","Subject","Activity",columnsGood)
+  Columns.Good<-grep("(std\\())|(mean\\())",Features.Names$V2,value = TRUE)
+  select(Data.Total,"Type","Subject","Activity",Columns.Good)
 }
 
 setActivitiesAsStrings<-function(dataToProcess){
   Data.Activities<-fread(file.path(Path.Main,"activity_labels.txt"))
   Data.Temp<-mutate(dataToProcess,
-         ActivityName=featuresdata$V2[match(Data.Total$Activity,featuresdata$V1)],
+         ActivityName=Data.Activities$V2[match(Data.Total$Activity,Data.Activities$V1)],
          .before="Subject")
   Data.Temp<-mutate(Data.Temp,Activity=NULL)
   Data.Temp
@@ -93,17 +93,22 @@ Data.Test<-getWearableComputingDS(Path.Test,
 #Merge both datasets
 Data.Total<-rbind(Data.Train,Data.Test)
 
-# now I eliminate what is not needed, the incise 2 says 
+# Now I eliminate what is not needed, the incise 2 says 
 # "Extracts only the measurements on the mean and standard
 # deviation for each measurement. "
 
 Data.Total<-cleanColumns(Data.Total)
 
-#I set the name of the activity as something moredescriptive (incise 4) using
+# I set the name of the activity as something more descriptive (incise 4) using
 # activity_labels.txt file.
 
 Data.Total<-setActivitiesAsStrings(Data.Total)
 
+# Finally I summarize by Activity and Subject
+Data.Grouped<-group_by(Data.Total,ActivityName,Subject)
+Data.Final<-summarise_if(Data.Grouped,is.numeric,funs(mean))
+
+View(Data.Final)
 
 
 
