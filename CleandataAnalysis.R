@@ -108,6 +108,8 @@ Data.Total<-setActivitiesAsStrings(Data.Total)
 Data.Grouped<-group_by(Data.Total,ActivityName,Subject)
 Data.Final<-summarise_if(Data.Grouped,is.numeric,funs(mean))
 
+write.table(Data.Final,file = "FinalData.txt", row.names = FALSE)
+
 View(Data.Final)
 
 

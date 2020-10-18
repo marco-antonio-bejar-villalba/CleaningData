@@ -5,7 +5,7 @@
 
 I give the proper acknowledgement to the original authors[^1] and thank them for the kindly gesture of sharing the data.
 
-## Pourpose
+## Purpose
 
 This project is intended to clean the data in the [Coursera Repository](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). The data structure is described in the [UCI Maching Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) and consists mainly in the following:
 
