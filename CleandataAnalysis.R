@@ -57,7 +57,7 @@ getWearableComputingDS<-function(pathToData,
 cleanColumns<-function(dataToProcess){
   Features.Names<-fread(file.path(Path.Main,"features.txt"))
   Columns.Good<-grep("(std\\())|(mean\\())",Features.Names$V2,value = TRUE)
-  select(Data.Total,"Type","Subject","Activity",Columns.Good)
+  select(Data.Total,"Type","Subject","Activity",all_of(Columns.Good))
 }
 
 setActivitiesAsStrings<-function(dataToProcess){
@@ -106,7 +106,7 @@ Data.Total<-setActivitiesAsStrings(Data.Total)
 
 # Finally I summarize by Activity and Subject
 Data.Grouped<-group_by(Data.Total,ActivityName,Subject)
-Data.Final<-summarise_if(Data.Grouped,is.numeric,funs(mean))
+Data.Final<-summarise_if(Data.Grouped,is.numeric,list(mean=mean))
 
 write.table(Data.Final,file = "FinalData.txt", row.names = FALSE)
 
