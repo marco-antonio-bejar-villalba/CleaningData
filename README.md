@@ -10,7 +10,7 @@ I give the proper acknowledgement to the original authors [^1] and thank them fo
 - FinalData.txt the tidy data as a txt file.
 - README.md this file.
 - CodeBook.md the codebook of this project.
-- CleandataAnalysis.R Script that process de data.
+- run_analysis.R Script that process de data.
 
 ## Purpose
 
